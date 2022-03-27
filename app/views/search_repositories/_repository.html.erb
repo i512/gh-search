@@ -1,0 +1,28 @@
+<h3>
+  <a href="<%= repository.html_url %>" target="_blank">
+    <%= repository.name %>
+  </a>
+</h3>
+
+<p><%= repository.description %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>stars</th>
+      <th>forks</th>
+      <th>open issues</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= repository.stars %></td>
+      <td><%= repository.forks %></td>
+      <td><%= repository.open_issues %></td>
+
+    </tr>
+  </tbody>
+</table>
+
+<code><%= repository.clone_ssh_url %></code>
+<br/>

@@ -1,0 +1,22 @@
+<h1>Search GitHub repositories</h1>
+
+<%= form_with url: root_path, method: :get  do |form| %>
+  <%= form.label :query, 'Your Query' %>
+  <%= form.text_field :query, value: @query, autofocus: true %>
+<% end %>
+
+<% if @results.any? %>
+  <% @results.each do |repo| %>
+    <%= render 'repository', repository: repo %>
+  <% end %>
+
+  <nav>
+    <% if @page < @pages %>
+      <%= link_to 'Next', root_path(query: @query, page: @page + 1) %>
+    <% end %>
+
+    <% if @page > 1 %>
+      <%= link_to 'Prev', root_path(query: @query, page: @page - 1) %>
+    <% end %>
+  </nav>
+<% end %>
